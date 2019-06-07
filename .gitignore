@@ -1,0 +1,8 @@
+**/target/classes/*
+**/target/*.jar
+**/.idea/*
+**/target/maven-archiver/*
+**/target/**/*.original
+**/target/test-classes/*
+**/maven-status/*
+**/target/surefire*
