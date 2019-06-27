@@ -3,54 +3,77 @@ package com.namedlock.sort;
 import java.util.Arrays;
 
 public class MergeSort {
-    public static void mergeSort(int [] array, int n){
-        if(n<2){
+    public static void sort(int[] arr) {
+        mergeSort(arr, 0, arr.length-1);
+    }
+
+    private static void mergeSort(int[] arr, int l, int r) {
+        if (arr == null || l >= r) {
             return;
         }
+        int m = (l+r)/2;
 
-        int mid = n/2;
-        int [] left = new int[mid];
-        int [] right = new int[n-mid];
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
 
-        for(int i=0;i < mid;i ++){
-            left[i]=array[i];
-        }
-
-        for (int i=mid; i < n; i++){
-            right[i-mid]=array[i];
-        }
-
-        mergeSort(left, mid);
-        mergeSort(right, n-mid);
-
-        merge(array, left, right, mid, n - mid);
-
+        merge(arr, l, m, r);
     }
 
-    public static void merge(
-            int[] a, int[] l, int[] r, int left, int right) {
+    private static void merge(int[] arr, int l, int m, int r) {
 
-        int i=0,j=0,k=0;
-        while (i<left&& j< right){
-            if(l[i] <= r[j]){
-                a[k++]=l[i++];
-            }else {
-                a[k++]=r[j++];
+        int len1 = m - l + 1;
+        int len2 = r - m;
+
+        int L[] = new int[len1];
+        int R[] = new int[len2];
+
+        for (int i = 0; i < len1; i++) {
+            L[i] = arr[l + i];
+        }
+
+        for (int j=0; j < len2; j++)
+            R[j] = arr[m + 1 + j];
+
+        int i = 0;
+        int j = 0;
+        int k = l;
+        while (i < len1 && j < len2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
             }
+            k++;
         }
 
-        while (i<left){
-            a[k++]=l[i++];
+        while (i < len1) {
+            arr[k] = L[i];
+            i++;
+            k++;
         }
 
-        while (j<right){
-            a[k++]=r[j++];
+        while (j < len2) {
+            arr[k] = R[j];
+            j++;
+            k++;
         }
+
     }
+
 
     public static void main(String[] args) {
-        int[] actual = { 5, 1, 6, 2, 3, 4, 8, 7,1000, 88 };
-        MergeSort.mergeSort(actual, actual.length);
-        System.out.println(Arrays.toString(actual));
+        int[] arr1 = {10, 3, 7, 5, 20, 15, 1, 19};
+        MergeSort.sort(arr1);
+        System.out.println(Arrays.toString(arr1));
+
+        int[] arr2 = {};
+        MergeSort.sort(arr2);
+        System.out.println(Arrays.toString(arr2));
+
+        int[] arr3 = {10,11};
+        MergeSort.sort(arr3);
+        System.out.println(Arrays.toString(arr3));
     }
 }

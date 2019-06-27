@@ -98,7 +98,7 @@ public class MergeTwoSortedList {
     }
 
 
-    private ListNode buildPtr(int [] array){
+    public static ListNode buildPtr(int [] array){
         if(array==null){
             return null;
         }
@@ -120,17 +120,13 @@ public class MergeTwoSortedList {
         return h;
     }
 
-    private void print(ListNode l){
+    public static void print(ListNode l){
         while (l!=null){
             System.out.print(l.val+"->");
             l=l.next;
         }
 
     }
+
 }
 
-class ListNode {
-      int val;
-     ListNode next;
-     ListNode(int x) { val = x; }
-  }
