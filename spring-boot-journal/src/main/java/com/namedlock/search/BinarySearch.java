@@ -5,7 +5,7 @@ public class BinarySearch {
 
     public static int search(int array[], int left, int right, int x) {
 
-        if(left>right){
+        if (left > right) {
             return -1;
         }
 
@@ -14,10 +14,10 @@ public class BinarySearch {
             return mid;
         }
 
-        if(array[mid] > x){
-            return search(array, left, mid-1,x);
+        if (array[mid] > x) {
+            return search(array, left, mid - 1, x);
         }
-        return search(array, mid+1, right, x);
+        return search(array, mid + 1, right, x);
 
     }
 
@@ -33,7 +33,7 @@ public class BinarySearch {
             return -1;
         }
         int l = 0;
-        int r = array.length-1;
+        int r = array.length - 1;
 
         while (l <= r) {
             int m = l + (r - l) / 2;
@@ -55,6 +55,6 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {3, 5, 7, 10, 15, 20};
         System.out.println(BinarySearch.search(arr, 20));
-        System.out.println(BinarySearch.search(arr, 0, arr.length-1, 7));
+        System.out.println(BinarySearch.search(arr, 0, arr.length - 1, 7));
     }
 }

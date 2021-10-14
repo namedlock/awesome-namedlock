@@ -6,3 +6,4 @@
 **/target/test-classes/*
 **/maven-status/*
 **/target/surefire*
+venv

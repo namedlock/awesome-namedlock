@@ -73,6 +73,18 @@
             <version>1.8.13</version>
         </dependency>
 
+		<dependency>
+			<groupId>com.alibaba.ajdk</groupId>
+			<artifactId>ajdk-api</artifactId>
+			<version>8.3.6.fp5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.aviator</groupId>
+			<artifactId>aviator</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
 
     </dependencies>
 

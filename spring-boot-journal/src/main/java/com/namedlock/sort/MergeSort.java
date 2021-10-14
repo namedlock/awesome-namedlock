@@ -2,16 +2,23 @@ package com.namedlock.sort;
 
 import java.util.Arrays;
 
+/**
+ * MergeSort: It divides input array in two halves, calls itself for the two
+ * halves and then merges the two sorted halves.
+ * <p>
+ * Time Complexity: O(nLogn) in all 3 cases (worst, average and best).
+ * Space Complexity: O(n).
+ */
 public class MergeSort {
     public static void sort(int[] arr) {
-        mergeSort(arr, 0, arr.length-1);
+        mergeSort(arr, 0, arr.length - 1);
     }
 
     private static void mergeSort(int[] arr, int l, int r) {
         if (arr == null || l >= r) {
             return;
         }
-        int m = (l+r)/2;
+        int m = (l + r) / 2;
 
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
@@ -31,7 +38,7 @@ public class MergeSort {
             L[i] = arr[l + i];
         }
 
-        for (int j=0; j < len2; j++)
+        for (int j = 0; j < len2; j++)
             R[j] = arr[m + 1 + j];
 
         int i = 0;
@@ -72,7 +79,7 @@ public class MergeSort {
         MergeSort.sort(arr2);
         System.out.println(Arrays.toString(arr2));
 
-        int[] arr3 = {10,11};
+        int[] arr3 = {101, 11};
         MergeSort.sort(arr3);
         System.out.println(Arrays.toString(arr3));
     }
